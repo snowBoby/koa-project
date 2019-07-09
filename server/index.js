@@ -1,7 +1,10 @@
 const Koa = require('koa');
 const app = new Koa();
+const {normal} = require('./tpl');
 
 app.use(async (ctx, next) => {
-  ctx.body = '你好好吗';
-})
-app.listen(8888)
+  console.log(ctx);
+  ctx.type = 'text/html; charset=utf-8';
+  ctx.body = normal;
+});
+app.listen(8888);
